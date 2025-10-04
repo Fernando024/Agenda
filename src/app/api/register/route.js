@@ -28,8 +28,12 @@ export async function POST(req) {
     };
 
     await users.insertOne(newUser);
+    return new Response(JSON.stringify({ 
+        ok: true, 
+        message: "Registro exitoso", 
+        redirectTo: "/login" // Indica la URL al cliente
+    }), { status: 201 }); // ¡Devuelve 201 y JSON!
 
-    return new Response(JSON.stringify({ ok: true, message: "Usuario registrado" }), { status: 201 });
   } catch (error) {
     console.error(error);
     return new Response(JSON.stringify({ ok: false, message: "Error interno" }), { status: 500 });

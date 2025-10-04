@@ -3,27 +3,52 @@
   align-items: center;
   justify-content: space-between;
   padding: 1rem 2rem;
+  position: relative;
 }
 
+.logo {
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .logoImg {
-  height: 5rem;
+  height: 6rem;
   width: auto;
+  transition: transform 0.3s ease;
+}
+
+.logoImg:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.linksContainer {
+  gap: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.links {
+  display: flex;
+  gap: 1rem;
 }
 
 .links a {
-  margin-left: 1rem;
+  position: static;
   font-size: 1.3rem;
-  gap:1rem;
-  text-decoration: none;
   color: var(--blanco);
 }
 
+.linksSesion {
+  display: flex;
+  gap: 1rem;
+}
+
 .linksSesion a {
-  margin-left: 1rem;
+  position: static;
   font-size: 1.3rem;
-  gap:1rem;
-  text-decoration: none;
   color: var(--verdeClaro);
 }
 
@@ -37,12 +62,14 @@
 
 .search input {
   background: url(https://cdn0.iconfinder.com/data/icons/slim-square-icons-basics/100/basics-19-32.png) no-repeat 0px 5px;
-  background-size: 10rem;
-  width: 30rem;
+  background-size: 1.3rem; 
+  max-width: 30rem; 
+  width: 150%; 
   border: transparent;
   border-bottom: solid 1px var(--blanco);
   padding: 10px 10px 10px 30px;
   outline: none;
+  margin-right: 17rem;
 }
 
 .search input::placeholder {
@@ -50,4 +77,57 @@
 }
 
 
+@media (max-width: 1100px) {
+    .search input {
+        max-width: 12rem;
+    }
+}
 
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 0.5rem 1rem;
+    }
+    .logo {
+        height: 4.4rem;
+    }
+    .logoImg {
+        height: 4rem;
+    }
+    .links a, .linksSesion a {
+        font-size: 1.1rem;
+    }
+    .search input {
+        max-width: 15rem;
+        margin-right: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        padding: 0.5rem;
+    }
+    .logo {
+        order: 1;
+    }
+    .search {
+        order: 2;
+        margin: 0.5rem 0;
+    }
+    .search input {
+        max-width: 10rem;
+        margin-right: 0;
+    }
+    .linksContainer {
+        order: 3;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .links, .linksSesion {
+        justify-content: center;
+    }
+    .links a, .linksSesion a {
+        font-size: 1rem;
+    }
+}

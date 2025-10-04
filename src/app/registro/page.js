@@ -1,11 +1,14 @@
 "use client";
 import { useState } from "react";
 import "../login/login.css"; 
+import { useRouter } from "next/navigation";
 
 export default function Registro() {
   const [nombre, setNombre] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
+  const router = useRouter();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -15,9 +18,14 @@ export default function Registro() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ nombre, email, password }),
     });
-
+    //mensaje de creacion exitosa o de error
     const data = await res.json();
-    alert(data.message);
+    setMessage(data.message);
+    //redireccionamiento al login
+    if (data.ok && data.redirectTo) {
+      router.push(data.redirectTo); 
+    }
+    
   };
 
   return (
@@ -51,6 +59,11 @@ export default function Registro() {
               Registrarse
             </button>
           </form>
+
+          <p className={`message ${message.includes("exitoso") || message.includes("autenticado") ? "success" : "error"}`}>
+             {message}
+          </p>
+         
           <p className="registro">
             ¿Ya tienes cuenta? <a href="/login">Inicia sesión</a>
           </p>

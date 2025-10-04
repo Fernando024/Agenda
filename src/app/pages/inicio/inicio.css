@@ -20,8 +20,10 @@
 
 .contenedorImagen {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 2rem;
   margin-bottom: 16px;
+  flex-wrap: wrap;
 }
 
 .imagen {
@@ -53,4 +55,108 @@
   font-style: italic;
   font-size: 18px;
   padding-top: 60px;
+}
+
+/* Media queries para responsividad */
+
+/* Móvil */
+@media (max-width: 767px) {
+  .main {
+    padding: 2rem 1rem;
+  }
+
+  .main h1 {
+    font-size: 2.5rem;
+  }
+
+  .main p {
+    font-size: 1.2rem;
+  }
+
+  .contenedor {
+    margin-top: 2rem;
+  }
+
+  .imagen {
+    width: 6rem;
+    height: 6rem;
+  }
+
+  .viewContainer {
+    padding: 15px;
+    min-height: 150px;
+  }
+
+  .placeholder {
+    font-size: 16px;
+    padding-top: 40px;
+  }
+}
+
+/* Escritorio pequeño (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .main {
+    padding: 3rem 2rem;
+  }
+
+  .main h1 {
+    font-size: 3rem;
+  }
+
+  .main p {
+    font-size: 1.4rem;
+  }
+
+  .contenedor {
+    margin-top: 3rem;
+  }
+
+  .imagen {
+    width: 8rem;
+    height: 8rem;
+  }
+
+  .viewContainer {
+    padding: 18px;
+    min-height: 180px;
+  }
+
+  .placeholder {
+    font-size: 17px;
+    padding-top: 50px;
+  }
+}
+
+/* Escritorio grande (1024px y más) */
+@media (min-width: 1024px) {
+  .main {
+    padding: 4rem;
+  }
+
+  .main h1 {
+    font-size: 4rem;
+  }
+
+  .main p {
+    font-size: 1.6rem;
+  }
+
+  .contenedor {
+    margin-top: 4rem;
+  }
+
+  .imagen {
+    width: 12rem;
+    height: 12rem;
+  }
+
+  .viewContainer {
+    padding: 25px;
+    min-height: 220px;
+  }
+
+  .placeholder {
+    font-size: 20px;
+    padding-top: 70px;
+  }
 }

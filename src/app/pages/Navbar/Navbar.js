@@ -7,7 +7,7 @@ export default function Navbar() {
     <nav className={styles.navbar}>
       <div className={styles.logo}>
         <Link href="/">
-        <img src="/notas.png" alt="Agenda en Linea" className={styles.logoImg} />
+        <img src="/cocodrilo.png" alt="logo de cocodrilo" className={styles.logoImg} />
         </Link>
       </div>
 
@@ -15,16 +15,17 @@ export default function Navbar() {
       <input type="search" placeholder="Buscar" id="Buscador" />
       </div>
 
-      <div className={styles.links}>
-        <Link href="/Agenda">Agenda</Link>
-        <Link href="/Estilos">Estilos</Link>
-        <Link href="/Herramientas">Herramientas</Link>
-        <Link href="/Recordatorios">Recordatorios</Link>
-      </div>
-
-      <div className={styles.linksSesion}>
-      <Link href="/login">Iniciar sesión</Link>
-      <Link href="/registro">Registrarse</Link>
+      <div className={styles.linksContainer}>
+        <div className={styles.links}>
+          <Link href="/Agenda">Agenda</Link>
+          <Link href="/Estilos">Estilos</Link>
+          <Link href="/Herramientas">Herramientas</Link>
+          <Link href="/Recordatorios">Recordatorios</Link>
+        </div>
+        <div className={styles.linksSesion}>
+        <Link href="/login">Iniciar sesión</Link>
+        <Link href="/registro">Registrarse</Link>
+        </div>
       </div>
 
     </nav>
